@@ -175,7 +175,7 @@
 </script>
 
 <style>
-/* Layout: a chambers name-board hero (ink panel framed in brass, monogram seal), then an editorial grid on paper.
+/* Layout: a chambers name-board hero (ink panel framed in brass, portrait in a brass ring), then an editorial grid on paper.
    Each section opens with a § eyebrow and a Garamond title; dated material sits in a ledger with a date column. */
 :root {
   --ink: #0f1b2d;
@@ -375,12 +375,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .btn-line { background: transparent; color: var(--on-ink); }
 .btn-line:hover { color: var(--ink); background: var(--brass-ink); }
 
-.seal { width: clamp(11rem, 20vw, 15.5rem); height: auto; display: block; }
-.seal .ring { fill: none; stroke: var(--brass-ink); }
-.seal .ring-thin { fill: none; stroke: var(--brass-ink); opacity: 0.55; }
-.seal .around { fill: var(--on-ink-muted); font-family: var(--sans); font-size: 10.5px; font-weight: 500; letter-spacing: 0.2em; }
-.seal .mono { fill: var(--on-ink); font-family: var(--serif); font-size: 64px; }
-.seal .dot { fill: var(--brass-ink); }
+.portrait { width: clamp(14rem, 26vw, 21rem); height: auto; display: block; }
 
 /* ---------- Section strip (phones and tablets) ---------- */
 .subnav { display: none; background: var(--surface); border-bottom: 1px solid var(--rule); }
@@ -595,7 +590,7 @@ footer.site span:first-child { font-family: var(--serif); font-size: 1rem; color
 @media (max-width: 860px) {
   .board { grid-template-columns: minmax(0, 1fr); }
   .seal-wrap { order: -1; }
-  .seal { width: 7.5rem; }
+  .portrait { width: min(15rem, 70vw); margin-inline: auto; }
   .profile, .contact-grid, .feature { grid-template-columns: minmax(0, 1fr); }
   .posts { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
   .honours { grid-template-columns: minmax(0, 1fr); }
@@ -657,19 +652,10 @@ footer.site span:first-child { font-family: var(--serif); font-size: 1rem; color
         </div>
       </div>
       <div class="seal-wrap">
-        <!-- To use a portrait instead, replace this SVG with: <img class="seal" src="portrait.jpg" alt="Ghalib Naseer" style="border-radius:50%;border:1px solid #c6a66b"> -->
-        <svg class="seal" viewBox="0 0 240 240" role="img" aria-label="Monogram GN">
-          <defs>
-            <path id="seal-ring" d="M 120,120 m -93,0 a 93,93 0 1,1 186,0 a 93,93 0 1,1 -186,0"/>
-          </defs>
-          <circle class="ring" cx="120" cy="120" r="116" stroke-width="1.25"/>
-          <circle class="ring-thin" cx="120" cy="120" r="110" stroke-width="0.75"/>
-          <circle class="ring-thin" cx="120" cy="120" r="78" stroke-width="0.75"/>
-          <circle class="ring" cx="120" cy="120" r="72" stroke-width="1.25"/>
-          <text class="around"><textPath href="#seal-ring" startOffset="0" textLength="578" lengthAdjust="spacing">MALIK GHALIB NASEER THAHEEM · CONSTITUTIONALISM · INTERNATIONAL LAW ·</textPath></text>
-          <text class="mono" x="120" y="142" text-anchor="middle">GN</text>
-          <circle class="dot" cx="120" cy="166" r="2"/>
-        </svg>
+        <picture>
+          <source srcset="portrait.webp" type="image/webp">
+          <img class="portrait" src="portrait.png" width="800" height="834" alt="Portrait of Ghalib Naseer in a dark suit, framed by a brass ring" decoding="async" fetchpriority="high">
+        </picture>
       </div>
     </div>
   </div>
